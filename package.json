@@ -10,7 +10,8 @@
   "scripts": {
     "start": "parcel index.html",
     "lint": "eslint . --ext .js --fix",
-    "test": "jest --coverage --verbose"
+    "test": "yarn lint && jest --coverage --verbose",
+    "build": "yarn test && parcel build index.html"
   },
   "dependencies": {
     "react": "^17.0.2",
