@@ -1,27 +1,13 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { render, screen } from '@testing-library/react';
 
-import AchievementsList from '..';
+import StyledAchievementsList from '..';
 
-let container = null;
-beforeEach(() => {
-  // setup a DOM element as a render target
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
+it('renders names of passed achievements', () => {
+  const mockAchievements=[{ name: 'foo' }, { name: 'bar' }];
+  render(<StyledAchievementsList achievements={mockAchievements}/>);
 
-afterEach(() => {
-  // cleanup on exiting
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
-
-it('renders a list of achievements', () => {
-  const testAchievements=['foo', 'bar'];
-  act(() => {
-    render(<AchievementsList achievements={testAchievements}/>, container);
+  mockAchievements.forEach((achievement) => {
+    expect(screen.queryByText(achievement.name)).toBeTruthy();
   });
-  expect(container.children.length).toBe(testAchievements.length);
 });

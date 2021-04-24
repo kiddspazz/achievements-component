@@ -1,8 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const AchievementsList = ({ achievements }) =>
-  achievements.map(achievement => {
-    return <div key={achievement}>{achievement}</div>
-  });
+import Achievement from './Achievement/';
 
-export default AchievementsList;
+const UnstyledAchievements = ({ achievements, className }) =>
+  achievements.map((achievement) => <Achievement data={achievement} key={achievement.name} />);
+
+const Achievements = styled(UnstyledAchievements)`
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+`;
+
+export default Achievements;
