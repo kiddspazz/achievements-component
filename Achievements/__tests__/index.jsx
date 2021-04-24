@@ -2,7 +2,7 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import App from '..';
+import AchievementsList from '..';
 
 let container = null;
 beforeEach(() => {
@@ -18,9 +18,10 @@ afterEach(() => {
   container = null;
 });
 
-it('renders "Hello World!"', () => {
+it('renders a list of achievements', () => {
+  const testAchievements=['foo', 'bar'];
   act(() => {
-    render(<App />, container);
+    render(<AchievementsList achievements={testAchievements}/>, container);
   });
-  expect(container.textContent).toBe('Hello World!');
+  expect(container.children.length).toBe(testAchievements.length);
 });

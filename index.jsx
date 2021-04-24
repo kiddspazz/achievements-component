@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 
-import App from './src';
+import AchievementsList from './Achievements';
 
 const mountNode = document.getElementById('app');
-ReactDOM.render(<App name="World" />, mountNode);
+ReactDOM.render(<AchievementsList achievements={['thing1', 'thing2']}/>, mountNode);
