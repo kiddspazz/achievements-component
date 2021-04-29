@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const UnstyledAchievement = ({data: { name, achieved, description, className }}) => {
+const UnstyledAchievement = ({ className, data: { name, achieved, description } }) => {
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (

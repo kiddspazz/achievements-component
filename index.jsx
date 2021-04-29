@@ -3,5 +3,7 @@ import React from 'react';
 
 import Achievements from './Achievements';
 
+import { mockAchievements } from './mocks';
+
 const mountNode = document.getElementById('app');
-ReactDOM.render(<Achievements achievements={[{ name: 'foo', description: 'baz' }, { name: 'bar', description: 'qux' }]}/>, mountNode);
+ReactDOM.render(<Achievements achievements={mockAchievements}/>, mountNode);

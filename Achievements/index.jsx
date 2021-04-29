@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Achievement from './Achievement/';
 
 const UnstyledAchievements = ({ achievements, className }) =>
-  achievements.map((achievement) => <Achievement data={achievement} key={achievement.name} />);
+  <div className={className}>
+    {
+      achievements.map((achievement) =>
+        <Achievement data={achievement} key={achievement.name} />)
+    }
+  </div>
 
 const Achievements = styled(UnstyledAchievements)`
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 `;
 
 export default Achievements;

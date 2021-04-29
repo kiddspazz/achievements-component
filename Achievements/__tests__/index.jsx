@@ -3,8 +3,9 @@ import { render, screen } from '@testing-library/react';
 
 import StyledAchievementsList from '..';
 
+import { mockAchievements } from '../../mocks';
+
 it('renders names of passed achievements', () => {
-  const mockAchievements=[{ name: 'foo' }, { name: 'bar' }];
   render(<StyledAchievementsList achievements={mockAchievements}/>);
 
   mockAchievements.forEach((achievement) => {
